@@ -2,7 +2,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from .serializers import CommentSerializer
 from .models import Comment
-from rest_framework.permissions import IsAuthenticateds
+from rest_framework.permissions import IsAuthenticated
 from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 from django.db import transaction
@@ -37,7 +37,7 @@ class CommentListView(ListCreateAPIView):
 
 class CommentDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticateds]
+    permission_classes = [IsAuthenticated]
     lookup_field = "pk"  
 
     def get_queryset(self):
