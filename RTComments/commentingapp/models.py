@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Comment(models.Model):
-    post_id = models.AutoField(primary_key=True)
+    post_id = models.IntegerField(max_length=10)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.CharField(max_length=750)
     created_at = models.DateTimeField(auto_now_add=True)
