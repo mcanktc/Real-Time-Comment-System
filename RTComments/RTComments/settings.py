@@ -25,12 +25,16 @@ SECRET_KEY = 'django-insecure-^lcah^jho*3-&0z@qku53i!-)3mepe9euuyc(t0l$(kds4+t$#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
+    'rest_framework',
+    'commentingapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -67,6 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'RTComments.wsgi.application'
+ASGI_APPLICATION = 'RTComments.asgi.application'
+
 
 
 # Database
